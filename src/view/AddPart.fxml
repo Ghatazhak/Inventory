@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="236.0" prefWidth="429.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label focusTraversable="false" layoutX="14.0" layoutY="31.0" text="Add Part">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <RadioButton layoutX="128.0" layoutY="36.0" mnemonicParsing="false" text="In-House">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </RadioButton>
+      <RadioButton layoutX="231.0" layoutY="36.0" mnemonicParsing="false" text="Outsourced">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </RadioButton>
+      <TextField layoutX="65.0" layoutY="70.0" promptText="Enter Name" />
+      <TextField editable="false" layoutX="262.0" layoutY="70.0" promptText="Auto Gen- Disabled" />
+      <Label focusTraversable="false" layoutX="236.0" layoutY="73.0" text="ID">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label focusTraversable="false" layoutX="24.0" layoutY="73.0" text="Name">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label focusTraversable="false" layoutX="24.0" layoutY="108.0" text="Inventory Levels ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label focusTraversable="false" layoutX="24.0" layoutY="142.0" text="Price/Cost per Unit">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label focusTraversable="false" layoutX="337.0" layoutY="94.0" text="MAXIMUM">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label focusTraversable="false" layoutX="24.0" layoutY="176.0" text="Machine ID">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label focusTraversable="false" layoutX="24.0" layoutY="176.0" text="Company Name">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField layoutX="135.0" layoutY="107.0" prefHeight="25.0" prefWidth="75.0" promptText="Current" />
+      <TextField layoutX="212.0" layoutY="107.0" prefHeight="25.0" prefWidth="100.0" promptText="Minimum" />
+      <TextField layoutX="314.0" layoutY="108.0" prefHeight="25.0" prefWidth="100.0" promptText="Maximum" />
+      <TextField layoutX="153.0" layoutY="140.0" prefHeight="25.0" prefWidth="261.0" promptText="Cost/Price per Unit" />
+      <Label focusTraversable="false" layoutX="236.0" layoutY="94.0" text="MINIMUM">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label focusTraversable="false" layoutX="151.0" layoutY="94.0" text="CURRENT">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <TextField layoutX="128.0" layoutY="175.0" prefHeight="25.0" prefWidth="131.0" promptText="Company Name" />
+      <TextField layoutX="128.0" layoutY="175.0" prefHeight="25.0" prefWidth="131.0" promptText="Machine ID" />
+   </children>
+</AnchorPane>
