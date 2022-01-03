@@ -6,14 +6,29 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
 public class Main implements Initializable {
 
+
+    public TableView allParts;
+    public TableColumn partId;
+    public TableColumn allpartsID;
+    public TableColumn allPartsName;
+    public TableColumn allPartsStock;
+    public TableColumn allPartsPrice;
+    public TableView allProducts;
+    public TableColumn allProductsName;
+    public TableColumn allProductsID;
+    public TableColumn AllProductsStock;
+    public TableColumn allProductsPrice;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -58,5 +73,6 @@ public class Main implements Initializable {
     }
 
     public void exitApplication(ActionEvent actionEvent) {
+        // TO DO
     }
 }
