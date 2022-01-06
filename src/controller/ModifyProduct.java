@@ -35,11 +35,11 @@ public class ModifyProduct {
         stage.show();
     }
 
-    public void addPart(ActionEvent actionEvent) {
+    public void addPartToProduct(ActionEvent actionEvent) {
         // TO DO
     }
 
-    public void removePart(ActionEvent actionEvent) {
+    public void removePartFromProduct(ActionEvent actionEvent) {
         // TO DO
     }
 

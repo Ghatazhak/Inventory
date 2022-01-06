@@ -69,9 +69,9 @@
    <Button focusTraversable="false" layoutX="775.0" layoutY="634.0" mnemonicParsing="false"
            onAction="#cancelModifyProduct" prefHeight="40.0" prefWidth="75.0" text="Cancel"/>
    <Button fx:id="addPartButton" focusTraversable="false" layoutX="813.0" layoutY="302.0" mnemonicParsing="false"
-           onAction="#addPart" prefHeight="30.0" prefWidth="60.0" text="Add"/>
+           onAction="#addPartToProduct" prefHeight="30.0" prefWidth="60.0" text="Add"/>
    <Button fx:id="removePartButton" focusTraversable="false" layoutX="659.0" layoutY="578.0" mnemonicParsing="false"
-           onAction="#removePart" prefHeight="30.0" prefWidth="190.0" text="Remove Associated Part"/>
+           onAction="#removePartFromProduct" prefHeight="30.0" prefWidth="190.0" text="Remove Associated Part"/>
    <TextField layoutX="697.0" layoutY="43.0" prefHeight="25.0" prefWidth="165.0"
               promptText=" Search by Part ID or Name"/>
    <TableView focusTraversable="false" layoutX="497.0" layoutY="81.0" prefHeight="200.0" prefWidth="400.0">
