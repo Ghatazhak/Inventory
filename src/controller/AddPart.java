@@ -53,4 +53,7 @@ public class AddPart {
         inHouseMachineIDTextField.setVisible(false);
 
     }
+
+    public void saveModifyPart(ActionEvent actionEvent) {
+    }
 }

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="236.0" prefWidth="429.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddPart">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddPart">
    <children>
       <Label focusTraversable="false" layoutX="14.0" layoutY="31.0" text="Add Part">
          <font>
@@ -23,65 +23,60 @@
             <ToggleGroup fx:id="inHouseOutSourced" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="outSourced" layoutX="231.0" layoutY="36.0" mnemonicParsing="false" onAction="#outSourced" text="Outsourced" toggleGroup="$inHouseOutSourced">
+      <RadioButton fx:id="outSourced" layoutX="290.0" layoutY="36.0" mnemonicParsing="false" onAction="#outSourced" text="Outsourced" toggleGroup="$inHouseOutSourced">
          <font>
             <Font size="14.0" />
          </font>
       </RadioButton>
-      <TextField layoutX="65.0" layoutY="70.0" promptText="Enter Name" />
-      <TextField editable="false" layoutX="262.0" layoutY="70.0" promptText="Auto Gen- Disabled" />
-      <Label focusTraversable="false" layoutX="236.0" layoutY="73.0" text="ID">
+      <TextField layoutX="133.0" layoutY="120.0" promptText="Enter Name" />
+      <TextField editable="false" layoutX="126.0" layoutY="83.0" promptText="Auto Gen- Disabled" />
+      <Label focusTraversable="false" layoutX="72.0" layoutY="86.0" text="ID">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label focusTraversable="false" layoutX="24.0" layoutY="73.0" text="Name">
+      <Label focusTraversable="false" layoutX="61.0" layoutY="123.0" text="Name">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label focusTraversable="false" layoutX="24.0" layoutY="108.0" text="Inventory Levels ">
+      <Label focusTraversable="false" layoutX="70.0" layoutY="166.0" text="Inv">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label focusTraversable="false" layoutX="24.0" layoutY="142.0" text="Price/Cost per Unit">
+      <Label focusTraversable="false" layoutX="48.0" layoutY="216.0" text="Price/Cost">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label focusTraversable="false" layoutX="337.0" layoutY="94.0" text="MAXIMUM">
-         <font>
-            <Font size="10.0" />
-         </font>
-      </Label>
-      <Label fx:id="inHouseMachineIDLabel" focusTraversable="false" layoutX="44.0" layoutY="176.0" text="Machine ID">
+      <Label focusTraversable="false" layoutX="52.0" layoutY="250.0" text="Max">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="outSourcedCompanyNameLabel" focusTraversable="false" layoutX="24.0" layoutY="176.0" text="Company Name" visible="false">
+      <Label fx:id="inHouseMachineIDLabel" focusTraversable="false" layoutX="47.0" layoutY="287.0" text="Machine ID">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="135.0" layoutY="107.0" prefHeight="25.0" prefWidth="75.0" promptText="Current" />
-      <TextField layoutX="212.0" layoutY="107.0" prefHeight="25.0" prefWidth="100.0" promptText="Minimum" />
-      <TextField layoutX="314.0" layoutY="108.0" prefHeight="25.0" prefWidth="100.0" promptText="Maximum" />
-      <TextField layoutX="153.0" layoutY="140.0" prefHeight="25.0" prefWidth="261.0" promptText="Cost/Price per Unit" />
-      <Label focusTraversable="false" layoutX="236.0" layoutY="94.0" text="MINIMUM">
+      <Label fx:id="outSourcedCompanyNameLabel" focusTraversable="false" layoutX="33.0" layoutY="287.0" text="Company Name" visible="false">
          <font>
-            <Font size="10.0" />
+            <Font size="14.0" />
          </font>
       </Label>
-      <Label focusTraversable="false" layoutX="151.0" layoutY="94.0" text="CURRENT">
+      <TextField layoutX="132.0" layoutY="164.0" prefHeight="25.0" prefWidth="75.0" promptText="Current" />
+      <TextField layoutX="303.0" layoutY="245.0" prefHeight="25.0" prefWidth="100.0" promptText="Minimum" />
+      <TextField layoutX="135.0" layoutY="245.0" prefHeight="25.0" prefWidth="100.0" promptText="Maximum" />
+      <TextField layoutX="132.0" layoutY="213.0" prefHeight="25.0" prefWidth="124.0" promptText="Cost/Price per Unit" />
+      <Label focusTraversable="false" layoutX="254.0" layoutY="248.0" text="Min">
          <font>
-            <Font size="10.0" />
+            <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="outSourcedCompanyNameTextField" layoutX="128.0" layoutY="175.0" prefHeight="25.0" prefWidth="131.0" promptText="Company Name" visible="false" />
-      <TextField fx:id="inHouseMachineIDTextField" layoutX="128.0" layoutY="175.0" prefHeight="25.0" prefWidth="131.0" promptText="Machine ID" />
-      <Button layoutX="269.0" layoutY="173.0" mnemonicParsing="false" onAction="#saveAddPart" prefHeight="30.0" prefWidth="60.0" text="Save" />
-      <Button layoutX="337.0" layoutY="173.0" mnemonicParsing="false" onAction="#cancelAddPart" prefHeight="30.0" prefWidth="60.0" text="Cancel" />
+      <TextField fx:id="outSourcedCompanyNameTextField" layoutX="135.0" layoutY="285.0" prefHeight="25.0" prefWidth="131.0" promptText="Company Name" visible="false" />
+      <TextField fx:id="inHouseMachineIDTextField" layoutX="135.0" layoutY="284.0" prefHeight="25.0" prefWidth="131.0" promptText="Machine ID" />
+      <Button layoutX="164.0" layoutY="373.0" mnemonicParsing="false" onAction="#saveAddPart" prefHeight="30.0" prefWidth="60.0" text="Save" />
+      <Button layoutX="245.0" layoutY="373.0" mnemonicParsing="false" onAction="#cancelAddPart" prefHeight="30.0" prefWidth="60.0" text="Cancel" />
    </children>
 </AnchorPane>
