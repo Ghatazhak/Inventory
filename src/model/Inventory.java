@@ -62,14 +62,4 @@ import javafx.collections.ObservableList;
 
         return null;
     }
-    static {
-        addsTestData();
-    }
-     public static void addsTestData (){
-         System.out.println("Called");
-         InHouse gear = new InHouse(1,"gear",5.00,10,5,100, 3);
-         InHouse chain = new InHouse(1,"chain",9.00,3,1,100, 4);
-         Inventory.addPart(gear);
-         Inventory.addPart(chain);
-     }
 }
