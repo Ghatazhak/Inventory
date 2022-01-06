@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -73,6 +74,6 @@ public class Main implements Initializable {
     }
 
     public void exitApplication(ActionEvent actionEvent) {
-        // TO DO
+        Platform.exit();
     }
 }
