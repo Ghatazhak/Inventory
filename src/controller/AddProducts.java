@@ -11,8 +11,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class AddProducts {
-    public Button addAssoiatedPartB;
-    public Button removeAssociatedB;
+    public Button addPartButton;
+    public Button removePartButton;
 
     public void saveProduct(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));

@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,6 +21,7 @@ public class AddPart {
     public Label outSourcedCompanyNameLabel;
     public TextField outSourcedCompanyNameTextField;
     public TextField inHouseMachineIDTextField;
+    public ToggleGroup inHouseOutSourced;
 
     public void saveAddPart(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
@@ -54,6 +56,4 @@ public class AddPart {
 
     }
 
-    public void saveModifyPart(ActionEvent actionEvent) {
-    }
 }

@@ -5,11 +5,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class ModifyProduct {
+
+    public Button addPartButton;
+    public Button removePartButton;
 
     public void cancelModifyProduct(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
@@ -31,11 +35,11 @@ public class ModifyProduct {
         stage.show();
     }
 
-    public void associatePart(ActionEvent actionEvent) {
+    public void addPart(ActionEvent actionEvent) {
         // TO DO
     }
 
-    public void unassociatePart(ActionEvent actionEvent) {
+    public void removePart(ActionEvent actionEvent) {
         // TO DO
     }
 
