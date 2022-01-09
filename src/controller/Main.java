@@ -9,7 +9,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.Inventory;
+import model.Part;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,21 +21,32 @@ import java.util.ResourceBundle;
 
 public class Main implements Initializable {
 
-
     public TableView allParts;
-    public TableColumn partId;
-    public TableColumn allpartsID;
-    public TableColumn allPartsName;
-    public TableColumn allPartsStock;
-    public TableColumn allPartsPrice;
+    public TableColumn allpartsIDCol;
+    public TableColumn allPartsNameCol;
+    public TableColumn allPartsStockCol;
+    public TableColumn allPartsPriceCol;
     public TableView allProducts;
-    public TableColumn allProductsName;
-    public TableColumn allProductsID;
-    public TableColumn AllProductsStock;
-    public TableColumn allProductsPrice;
+    public TableColumn allProductsIDCol;
+    public TableColumn allProductsNameCol;
+    public TableColumn AllProductsStockCol;
+    public TableColumn allProductsPriceCol;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        allParts.setItems(Inventory.getAllParts());
+        allProducts.setItems(Inventory.getAllProducts());
+
+        allpartsIDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        allPartsNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        allPartsStockCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        allPartsPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        allProductsIDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+        allProductsNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        AllProductsStockCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        allProductsPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
+
 
     }
 

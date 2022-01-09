@@ -24,9 +24,12 @@ public class Main extends Application {
     public static void addsTestData (){
         System.out.println("Called");
         InHouse gear = new InHouse(1,"gear",5.00,10,5,100, 3);
-        InHouse chain = new InHouse(1,"chain",9.00,3,1,100, 4);
+        InHouse chain = new InHouse(2,"chain",9.00,3,1,100, 4);
+        InHouse wheel = new InHouse(3,"wheel",20.00,8,2,50, 5);
+
         Inventory.addPart(gear);
         Inventory.addPart(chain);
+        Inventory.addPart(wheel);
     }
 
 

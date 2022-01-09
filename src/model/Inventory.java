@@ -54,12 +54,10 @@ import javafx.collections.ObservableList;
     }
 
     public static ObservableList<Part> getAllParts(){
-
-        return null;
+        return allParts;
     }
 
     public static ObservableList<Product> getAllProducts(){
-
-        return null;
+        return allProducts;
     }
 }

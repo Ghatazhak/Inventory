@@ -32,13 +32,17 @@ public class AddPart {
         stage.show();
     }
 
-    public void cancelAddPart(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root,873,439);
-        stage.setTitle("");
-        stage.setScene(scene);
-        stage.show();
+    public void cancelAddPart(ActionEvent actionEvent)  {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
+            Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root,873,439);
+            stage.setTitle("");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e){
+            System.out.println("No such FXML File");
+        }
     }
 
     public void inHouse(ActionEvent actionEvent) {
