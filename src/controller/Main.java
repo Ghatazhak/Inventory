@@ -71,6 +71,12 @@ public class Main implements Initializable {
     }
 
     public void addProductView(ActionEvent actionEvent) throws IOException {
+
+
+
+
+
+
         Parent root = FXMLLoader.load(getClass().getResource("/view/AddProduct.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root, 929, 708);
