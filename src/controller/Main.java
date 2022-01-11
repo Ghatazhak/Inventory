@@ -14,7 +14,6 @@ import javafx.stage.Stage;
 import model.Inventory;
 import model.Part;
 import model.Product;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -71,12 +70,6 @@ public class Main implements Initializable {
     }
 
     public void addProductView(ActionEvent actionEvent) throws IOException {
-
-
-
-
-
-
         Parent root = FXMLLoader.load(getClass().getResource("/view/AddProduct.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root, 929, 708);
