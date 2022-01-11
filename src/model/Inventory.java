@@ -44,13 +44,19 @@ import javafx.collections.ObservableList;
     }
 
     public static boolean deletePart(Part selectedPart){
-
-        return false;
+        if(selectedPart == null){
+            return false;
+        }
+        allParts.remove(selectedPart);
+        return true;
     }
 
     public static boolean deleteProduct(Product selectedProduct){
-
-        return false;
+        if(selectedProduct == null){
+            return false;
+        }
+        allProducts.remove(selectedProduct);
+        return true;
     }
 
     public static ObservableList<Part> getAllParts(){

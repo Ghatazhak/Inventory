@@ -34,7 +34,7 @@
             </Label>
             <Button layoutX="142.0" layoutY="250.0" mnemonicParsing="false" onAction="#addPartView" prefHeight="40.0" prefWidth="75.0" text="Add" />
             <Button layoutX="227.0" layoutY="250.0" mnemonicParsing="false" onAction="#modifyPartView" prefHeight="40.0" prefWidth="75.0" text="Modify" />
-            <Button layoutX="312.0" layoutY="250.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="75.0" text="Delete" />
+            <Button layoutX="312.0" layoutY="250.0" mnemonicParsing="false" onAction="#deletePart" prefHeight="40.0" prefWidth="75.0" text="Delete" />
          </children>
       </Pane>
       <Button layoutX="770.0" layoutY="390.0" mnemonicParsing="false" onAction="#exitApplication" prefHeight="40.0" prefWidth="70.0" text="EXIT" />
@@ -56,7 +56,7 @@
             </Label>
             <Button layoutX="142.0" layoutY="250.0" mnemonicParsing="false" onAction="#addProductView" prefHeight="40.0" prefWidth="75.0" text="Add" />
             <Button layoutX="227.0" layoutY="250.0" mnemonicParsing="false" onAction="#modifyProductView" prefHeight="40.0" prefWidth="75.0" text="Modify" />
-            <Button layoutX="312.0" layoutY="250.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="75.0" text="Delete" />
+            <Button layoutX="312.0" layoutY="250.0" mnemonicParsing="false" onAction="#deleteProduct" prefHeight="40.0" prefWidth="75.0" text="Delete" />
          </children>
       </Pane>
    </children>

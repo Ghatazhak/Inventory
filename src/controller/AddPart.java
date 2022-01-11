@@ -33,10 +33,10 @@ public class AddPart {
 
     public void saveAddPart(ActionEvent actionEvent) throws IOException {
         if(inHouse.isSelected()){
-            Part newPart = new InHouse(PartIDRecord.getNextPartID(), nameText.getText(),Integer.parseInt(priceText.getText()),Integer.parseInt(stockText.getText()),Integer.parseInt(minStockText.getText()),Integer.parseInt(maxStockText.getText()),Integer.parseInt(machineIDText.getText()));
+            Part newPart = new InHouse(IDRecord.getNextPartID(), nameText.getText(),Integer.parseInt(priceText.getText()),Integer.parseInt(stockText.getText()),Integer.parseInt(minStockText.getText()),Integer.parseInt(maxStockText.getText()),Integer.parseInt(machineIDText.getText()));
             Inventory.addPart(newPart);
         } else if(outSourced.isSelected()){
-            Part newPart = new OutSourced(PartIDRecord.getNextPartID(),nameText.getText(),Integer.parseInt(priceText.getText()),Integer.parseInt(stockText.getText()),Integer.parseInt(minStockText.getText()),Integer.parseInt(maxStockText.getText()),companyNameTextField.getText());
+            Part newPart = new OutSourced(IDRecord.getNextPartID(),nameText.getText(),Integer.parseInt(priceText.getText()),Integer.parseInt(stockText.getText()),Integer.parseInt(minStockText.getText()),Integer.parseInt(maxStockText.getText()),companyNameTextField.getText());
             Inventory.addPart(newPart);
         }
 

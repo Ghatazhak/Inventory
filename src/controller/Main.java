@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.Inventory;
 import model.Part;
+import model.Product;
 
 import java.io.IOException;
 import java.net.URL;
@@ -52,8 +53,8 @@ public class Main implements Initializable {
 
     public void addPartView(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/AddPart.fxml"));
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root,480,515);
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, 480, 515);
         stage.setTitle("");
         stage.setScene(scene);
         stage.show();
@@ -62,8 +63,8 @@ public class Main implements Initializable {
 
     public void modifyPartView(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/ModifyPart.fxml"));
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root,480,515);
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, 480, 515);
         stage.setTitle("");
         stage.setScene(scene);
         stage.show();
@@ -71,8 +72,8 @@ public class Main implements Initializable {
 
     public void addProductView(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/AddProduct.fxml"));
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root,929,708);
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, 929, 708);
         stage.setTitle("");
         stage.setScene(scene);
         stage.show();
@@ -80,8 +81,8 @@ public class Main implements Initializable {
 
     public void modifyProductView(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/ModifyProduct.fxml"));
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root,929,708);
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, 929, 708);
         stage.setTitle("");
         stage.setScene(scene);
         stage.show();
@@ -90,4 +91,17 @@ public class Main implements Initializable {
     public void exitApplication(ActionEvent actionEvent) {
         Platform.exit();
     }
+
+    public void deletePart(ActionEvent actionEvent) {
+        Part part = (Part) allParts.getSelectionModel().getSelectedItem();
+        Inventory.deletePart(part);
+    }
+
+    public void deleteProduct(ActionEvent actionEvent) {
+        Product product = (Product) allProducts.getSelectionModel().getSelectedItem();
+        Inventory.deleteProduct(product);
+    }
 }
+
+
+
