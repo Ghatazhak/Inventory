@@ -22,7 +22,6 @@ import java.util.ResourceBundle;
 
 public class AddProducts implements Initializable {
     public ObservableList<Part> associatedParts = FXCollections.observableArrayList();
-
     public TableView allPartsTableView;
     public TableView associatedPartsView;
     public TextField productNameText;
@@ -60,13 +59,10 @@ public class AddProducts implements Initializable {
 
     public void saveProduct(ActionEvent actionEvent) throws IOException {
 
-
-
-
         if(!InputValidator.intValidator(productStockText.getText()) || !InputValidator.intValidator(productMinStockText.getText()) || !InputValidator.intValidator(productMaxStockText.getText())){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Something is not a number");
-            alert.setContentText("One or more if the following are not numbers: Inv, Min, Max, or Price");
+            alert.setContentText("One or more if the following are not numbers or blank: Inv, Min, Max, or Price");
             alert.show();
 
         } else if(Integer.parseInt(productStockText.getText()) > Integer.parseInt(productMaxStockText.getText()) || Integer.parseInt(productStockText.getText()) < Integer.parseInt(productMinStockText.getText())) {
@@ -76,8 +72,10 @@ public class AddProducts implements Initializable {
             alert.show();
 
         } else {
-            Product newProduct = new Product(IDRecord.getNextProductID(), productNameText.getText() ,Integer.parseInt(productPriceText.getText()),Integer.parseInt(productStockText.getText()),Integer.parseInt(productMinStockText.getText()),Integer.parseInt(productMaxStockText.getText()));
+            Product newProduct = new Product(IDRecord.getNextProductID(), productNameText.getText() ,Double.parseDouble(productPriceText.getText()),Integer.parseInt(productStockText.getText()),Integer.parseInt(productMinStockText.getText()),Integer.parseInt(productMaxStockText.getText()),associatedParts);
+
             Inventory.addProduct(newProduct);
+            associatedParts.clear();
             Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
             Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
             Scene scene = new Scene(root,873,439);

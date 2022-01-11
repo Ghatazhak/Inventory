@@ -3,7 +3,7 @@ package model;
 public class InputValidator {
 
 
-    public static boolean stringValidator(String needsValidation){
+    /*public static boolean stringValidator(String needsValidation){
         char[] chars = needsValidation.toCharArray();
         for (char c: chars) {
             if(!Character.isLetter(c)){
@@ -12,7 +12,7 @@ public class InputValidator {
         }
 
        return true;
-    }
+    }*/
 
     public static boolean intValidator(String needsValidation){
        try {

@@ -46,7 +46,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField editable="false" focusTraversable="false" layoutX="80.0" layoutY="56.0" prefHeight="25.0" prefWidth="143.0" promptText="Auto Gen- Disabled" />
+      <TextField disable="true" editable="false" focusTraversable="false" layoutX="80.0" layoutY="56.0" prefHeight="25.0" prefWidth="143.0" promptText="Auto Gen- Disabled" />
    </Pane>
    <Label layoutX="22.0" layoutY="24.0" text="ADD PRODUCT">
       <font>

@@ -27,7 +27,7 @@
          <Font size="14.0" />
       </font>
    </RadioButton>
-   <TextField editable="false" focusTraversable="false" layoutX="126.0" layoutY="83.0" promptText="Auto Gen- Disabled" />
+   <TextField disable="true" editable="false" focusTraversable="false" layoutX="126.0" layoutY="83.0" promptText="Auto Gen- Disabled" />
    <TextField fx:id="nameText" layoutX="133.0" layoutY="120.0" promptText="Enter Name" />
    <Label layoutX="72.0" layoutY="86.0" text="ID">
       <font>

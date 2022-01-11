@@ -18,7 +18,7 @@
       </Label>
       <Pane layoutX="8.0" layoutY="75.0" prefHeight="300.0" prefWidth="400.0" style="-fx-border-style: solid; -fx-border-radius: 5;">
          <children>
-            <TableView fx:id="allParts" layoutX="11.0" layoutY="42.0" prefHeight="200.0" prefWidth="377.0">
+            <TableView fx:id="allPartsTableView" layoutX="11.0" layoutY="42.0" prefHeight="200.0" prefWidth="377.0">
               <columns>
                 <TableColumn fx:id="allpartsIDCol" prefWidth="49.55560302734375" text="Part ID" />
                 <TableColumn fx:id="allPartsNameCol" prefWidth="121.77772521972656" text="Part Name" />
@@ -40,7 +40,7 @@
       <Button layoutX="770.0" layoutY="390.0" mnemonicParsing="false" onAction="#exitApplication" prefHeight="40.0" prefWidth="70.0" text="EXIT" />
       <Pane layoutX="456.0" layoutY="76.0" prefHeight="300.0" prefWidth="400.0" style="-fx-border-style: solid; -fx-border-radius: 5;">
          <children>
-            <TableView fx:id="allProducts" layoutX="11.0" layoutY="42.0" prefHeight="200.0" prefWidth="377.0">
+            <TableView fx:id="allProductsTableView" layoutX="11.0" layoutY="42.0" prefHeight="200.0" prefWidth="377.0">
                <columns>
                   <TableColumn fx:id="allProductsIDCol" prefWidth="71.33331298828125" text="Product ID" />
                   <TableColumn fx:id="allProductsNameCol" prefWidth="100.66668701171875" text="Product Name" />
