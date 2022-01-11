@@ -3,6 +3,7 @@ package controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -29,7 +30,9 @@ public class AddProducts implements Initializable {
     public TextField productMinStockText;
     public TextField productPriceText;
     public TextField productStockText;
-    public TableColumn associatedPartIDCol;
+
+    @FXML
+    public TableColumn<Part, Integer> associatedPartIDCol;
     public TableColumn associatedPartNameCol;
     public TableColumn associatedPartStockCol;
     public TableColumn associatedPartPriceCol;
@@ -75,7 +78,6 @@ public class AddProducts implements Initializable {
             Product newProduct = new Product(IDRecord.getNextProductID(), productNameText.getText() ,Double.parseDouble(productPriceText.getText()),Integer.parseInt(productStockText.getText()),Integer.parseInt(productMinStockText.getText()),Integer.parseInt(productMaxStockText.getText()),associatedParts);
 
             Inventory.addProduct(newProduct);
-            associatedParts.clear();
             Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
             Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
             Scene scene = new Scene(root,873,439);

@@ -30,13 +30,29 @@ public class Main implements Initializable {
 
     @FXML
     public TableColumn<Part, String> allPartsNameCol;
-    public TableColumn allPartsStockCol;
-    public TableColumn allPartsPriceCol;
-    public TableColumn allProductsIDCol;
-    public TableColumn allProductsNameCol;
-    public TableColumn AllProductsStockCol;
-    public TableColumn allProductsPriceCol;
+
+    @FXML
+    public TableColumn<Part, Integer> allPartsStockCol;
+
+    @FXML
+    public TableColumn<Part, Integer> allPartsPriceCol;
+
+    @FXML
+    public TableColumn<Part, Integer> allProductsIDCol;
+
+    @FXML
+    public TableColumn<Part, String> allProductsNameCol;
+
+    @FXML
+    public TableColumn<Part, Integer> AllProductsStockCol;
+
+    @FXML
+    public TableColumn<Part, Integer> allProductsPriceCol;
+
+    @FXML
     public TableView allProductsTableView;
+
+    @FXML
     public TableView allPartsTableView;
 
     @Override
@@ -88,6 +104,10 @@ public class Main implements Initializable {
 
     public void modifyProductView(ActionEvent actionEvent) throws IOException {
         tempAssociatedParts = (Product) allProductsTableView.getSelectionModel().getSelectedItem();
+
+        if(tempAssociatedParts == null){
+            return;
+        }
 
         Parent root = FXMLLoader.load(getClass().getResource("/view/ModifyProduct.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
