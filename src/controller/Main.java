@@ -134,7 +134,7 @@ public class Main implements Initializable {
 
     public void deletePart(ActionEvent actionEvent) {
         Part part = (Part) allPartsTableView.getSelectionModel().getSelectedItem();
-        if(part == null){
+        if(part == null || Inventory.getAllParts().isEmpty()){
             Alert alert2 = new Alert(Alert.AlertType.ERROR);
             alert2.setTitle("No Product Selected");
             alert2.setContentText("Unable to delete a product when none are selected");

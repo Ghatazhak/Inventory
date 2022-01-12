@@ -16,6 +16,7 @@ import model.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AddProducts implements Initializable {
@@ -97,6 +98,10 @@ public class AddProducts implements Initializable {
     public void addPart(ActionEvent actionEvent) {
         Part part = (Part) allPartsTableView.getSelectionModel().getSelectedItem();
         if(part == null){
+            Alert alert2 = new Alert(Alert.AlertType.ERROR);
+            alert2.setTitle("No Part Selected");
+            alert2.setContentText("Unable to add a part when none are selected");
+            alert2.show();
             return;
         }
         associatedParts.add(part);
@@ -104,10 +109,18 @@ public class AddProducts implements Initializable {
 
     public void removePart(ActionEvent actionEvent) {
         Part part = (Part) allPartsTableView.getSelectionModel().getSelectedItem();
-        if(part == null){
-            return;
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"This will remove the part from the product. Is that ok?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if(result.isPresent() && result.get() == ButtonType.OK){
+            if(part == null || associatedParts.isEmpty()){
+                Alert alert2 = new Alert(Alert.AlertType.ERROR);
+                alert2.setTitle("No Part Selected");
+                alert2.setContentText("Unable to remove a part when none are selected");
+                alert2.show();
+                return;
+            }
+            associatedParts.remove(part);
         }
-        associatedParts.remove(part);
     }
 
 
