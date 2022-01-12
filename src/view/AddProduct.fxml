@@ -65,7 +65,7 @@
    <Button focusTraversable="false" layoutX="775.0" layoutY="634.0" mnemonicParsing="false" onAction="#cancelProduct" prefHeight="40.0" prefWidth="75.0" text="Cancel" />
    <Button focusTraversable="false" layoutX="813.0" layoutY="302.0" mnemonicParsing="false" onAction="#addPart" prefHeight="30.0" prefWidth="60.0" text="Add" />
    <Button focusTraversable="false" layoutX="659.0" layoutY="578.0" mnemonicParsing="false" onAction="#removePart" prefHeight="30.0" prefWidth="190.0" text="Remove Associated Part" />
-   <TextField layoutX="697.0" layoutY="43.0" prefHeight="25.0" prefWidth="165.0" promptText=" Search by Part ID or Name" />
+   <TextField fx:id="partSearchText" layoutX="697.0" layoutY="43.0" onAction="#onPartSearch" prefHeight="25.0" prefWidth="165.0" promptText=" Search by Part ID or Name" />
    <TableView fx:id="allPartsTableView" focusTraversable="false" layoutX="497.0" layoutY="81.0" prefHeight="200.0" prefWidth="400.0">
       <columns>
          <TableColumn fx:id="allPartIDCol" prefWidth="49.55560302734375" text="Part ID" />
@@ -74,4 +74,6 @@
          <TableColumn fx:id="allPartPriceCol" prefWidth="134.00003051757812" text="Price/Cost per Unit" />
       </columns>
    </TableView>
+   <Button layoutX="864.0" layoutY="43.0" mnemonicParsing="false" onAction="#onPartSearch" text="Search" />
+   <Label fx:id="partSearchResult" layoutX="799.0" layoutY="16.0" />
 </AnchorPane>

@@ -37,6 +37,8 @@ public class ModifyProduct implements Initializable {
     public TextField modifyProductNameText;
     public TextField modifyProductStockText;
     public TextField modifyProductMaxText;
+    public TextField partSearchText;
+    public Label partSearchResult;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -125,5 +127,24 @@ public class ModifyProduct implements Initializable {
     }
 
 
+    public void onPartSearch(ActionEvent actionEvent) {
+        String q = partSearchText.getText();
+        ObservableList<Part> partsList = Inventory.lookupPart(q);
+        if(partsList.size() == 0){
+            try {
+                int id = Integer.parseInt(q);
+                Part part = Inventory.lookupPart(id);
+                if (part != null) {
+                    partsList.add(part);
+                }
+            }
+            catch (NumberFormatException e){
+                //ignore
+            }
+        }
 
+        allPartsView.setItems(partsList);
+        partSearchResult.setText(partsList.size() + " part(s) returned.");
+        partSearchText.setText("");
+    }
 }

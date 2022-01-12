@@ -9,10 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.*;
@@ -40,6 +37,8 @@ public class AddProducts implements Initializable {
     public TableColumn allPartNameCol;
     public TableColumn allPartStockCol;
     public TableColumn allPartPriceCol;
+    public TextField partSearchText;
+    public Label partSearchResult;
 
 
     @Override
@@ -112,4 +111,24 @@ public class AddProducts implements Initializable {
     }
 
 
+    public void onPartSearch(ActionEvent actionEvent) {
+        String q = partSearchText.getText();
+        ObservableList<Part> partsList = Inventory.lookupPart(q);
+        if(partsList.size() == 0){
+            try {
+                int id = Integer.parseInt(q);
+                Part part = Inventory.lookupPart(id);
+                if (part != null) {
+                    partsList.add(part);
+                }
+            }
+            catch (NumberFormatException e){
+                //ignore
+            }
+        }
+
+        allPartsTableView.setItems(partsList);
+        partSearchResult.setText(partsList.size() + " part(s) returned.");
+        partSearchText.setText("");
+    }
 }
