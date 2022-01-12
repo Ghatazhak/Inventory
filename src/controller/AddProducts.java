@@ -62,7 +62,7 @@ public class AddProducts implements Initializable {
 
     public void saveProduct(ActionEvent actionEvent) throws IOException {
 
-        if(!InputValidator.intValidator(productStockText.getText()) || !InputValidator.intValidator(productMinStockText.getText()) || !InputValidator.intValidator(productMaxStockText.getText())){
+        if(!InputValidator.intValidator(productStockText.getText()) || !InputValidator.intValidator(productMinStockText.getText()) || !InputValidator.intValidator(productMaxStockText.getText()) || !InputValidator.doubleValidator(productPriceText.getText())){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Something is not a number");
             alert.setContentText("One or more if the following are not numbers or blank: Inv, Min, Max, or Price");

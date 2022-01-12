@@ -16,31 +16,29 @@ import javafx.collections.ObservableList;
     }
 
     public static Part lookupPart(int partId){
-
-        return null;
+        return allParts.get(partId);
     }
 
     public static Product lookupProduct(int productId){
-
-        return null;
+        return allProducts.get(productId);
     }
 
     public static ObservableList<Part> lookupPart(String name){
-
+        //TO DO
         return null;
     }
 
     public static ObservableList<Product> lookupProduct(String productName){
-
+        //TO DO
         return null;
     }
 
     public static void updatePart(int index, Part selectedPart){
-
+        allParts.set(index, selectedPart);
     }
 
     public static void updateProduct(int index,Product newProduct){
-
+        allProducts.set(index, newProduct);
     }
 
     public static boolean deletePart(Part selectedPart){

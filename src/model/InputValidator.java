@@ -23,4 +23,14 @@ public class InputValidator {
             return false;
        }
     }
+    public static boolean doubleValidator(String needsValidation){
+        try {
+            Double.parseDouble(needsValidation);
+            return true;
+        }
+        catch (NumberFormatException e){
+            return false;
+        }
+    }
+
 }

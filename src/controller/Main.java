@@ -23,7 +23,8 @@ import java.util.ResourceBundle;
 
 public class Main implements Initializable {
 
-    public static Product tempAssociatedParts;
+    public static Product tempAssociatedProduct;
+    public static Part tempAssociatedPart;
 
     @FXML
     public TableColumn<Part, Integer> allpartsIDCol;
@@ -84,6 +85,11 @@ public class Main implements Initializable {
 
 
     public void modifyPartView(ActionEvent actionEvent) throws IOException {
+        tempAssociatedPart = (Part) allPartsTableView.getSelectionModel().getSelectedItem();
+
+        if(tempAssociatedPart == null){
+            return;
+        }
 
         Parent root = FXMLLoader.load(getClass().getResource("/view/ModifyPart.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -103,9 +109,9 @@ public class Main implements Initializable {
     }
 
     public void modifyProductView(ActionEvent actionEvent) throws IOException {
-        tempAssociatedParts = (Product) allProductsTableView.getSelectionModel().getSelectedItem();
+        tempAssociatedProduct = (Product) allProductsTableView.getSelectionModel().getSelectedItem();
 
-        if(tempAssociatedParts == null){
+        if(tempAssociatedProduct == null){
             return;
         }
 
