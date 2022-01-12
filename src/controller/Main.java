@@ -133,29 +133,43 @@ public class Main implements Initializable {
     }
 
     public void deletePart(ActionEvent actionEvent) {
+        Part part = (Part) allPartsTableView.getSelectionModel().getSelectedItem();
+        if(part == null){
+            Alert alert2 = new Alert(Alert.AlertType.ERROR);
+            alert2.setTitle("No Product Selected");
+            alert2.setContentText("Unable to delete a product when none are selected");
+            alert2.show();
+            return;
+        }
         Alert alert1 = new Alert(Alert.AlertType.CONFIRMATION,"This will delete the selected Product. Do you want to continue?");
         Optional<ButtonType> result = alert1.showAndWait();
         if(result.isPresent() && result.get() == ButtonType.OK){
-        Part part = (Part) allPartsTableView.getSelectionModel().getSelectedItem();
         Inventory.deletePart(part);
         }
-
     }
 
     public void deleteProduct(ActionEvent actionEvent) {
+        Product product = (Product) allProductsTableView.getSelectionModel().getSelectedItem();
+        if(product == null){
+            Alert alert2 = new Alert(Alert.AlertType.ERROR);
+            alert2.setTitle("No Product Selected");
+            alert2.setContentText("Unable to delete a product when none are selected");
+            alert2.show();
+            return;
+        }
         Alert alert1 = new Alert(Alert.AlertType.CONFIRMATION,"This will delete the selected Product. Do you want to continue?");
         Optional<ButtonType> result = alert1.showAndWait();
 
         if(result.isPresent() && result.get() == ButtonType.OK){
-            Product product = (Product) allProductsTableView.getSelectionModel().getSelectedItem();
+
             if(product.getAllAssociatedParts().isEmpty()){
                 Inventory.deleteProduct(product);
             } else {
-                Alert alert2 = new Alert(Alert.AlertType.ERROR);
-                alert2.setTitle("Associated Parts");
-                alert2.setContentText("Unable to delete Products with Associated parts. Please remove all parts before deleting.");
-                alert2.show();
-                return;
+                Alert alert3 = new Alert(Alert.AlertType.ERROR);
+                alert3.setTitle("Associated Parts");
+                alert3.setContentText("Unable to delete Products with Associated parts. Please remove all parts before deleting.");
+                alert3.show();
+
             }
         }
     }
