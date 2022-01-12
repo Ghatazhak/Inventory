@@ -8,20 +8,22 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.*;
-
+/** This class is where the program starts. */
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/PrimaryView.fxml"));
         stage.setTitle("");
         stage.setScene(new Scene(root,873, 439));
         stage.show();
     }
-
+    /** This is the main method. This is the first method that gets called when you run your java program.  */
     public static void main(String[] args){
         addsTestData();
         launch(args);
     }
+
+    /** Test Data. Test data used for testing my implementation  */
     public static void addsTestData (){
 
         ObservableList testList = FXCollections.observableArrayList();

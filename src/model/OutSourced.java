@@ -1,5 +1,5 @@
 package model;
-
+/** This class extends the abstract part class */
 public class OutSourced extends Part {
     private String companyName;
 

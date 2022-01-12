@@ -1,5 +1,5 @@
 package model;
-
+/** This class is used to increment part and product IDs. */
 public class IDRecord {
     private static int nextPartID = 1000;
     private static int nextProductID = 100;

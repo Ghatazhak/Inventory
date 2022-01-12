@@ -1,5 +1,5 @@
 package model;
-
+/** This class extends the part abstract class */
 public class InHouse extends Part {
     private int machineId;
 

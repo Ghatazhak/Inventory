@@ -2,7 +2,7 @@ package model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
+/** This class represents our product concrete class for product objects. */
 public class Product {
     private  ObservableList<Part> associatedParts = FXCollections.observableArrayList();
     private int id;

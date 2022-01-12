@@ -1,5 +1,5 @@
 package model;
-
+/** This class validates int and double primitives for other functions */
 public class InputValidator {
 
 

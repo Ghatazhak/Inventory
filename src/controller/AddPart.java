@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import model.*;
 
 import java.io.IOException;
-
+/** This class is the controller for the AddPart.fxml */
 public class AddPart {
 
     public RadioButton inHouse;
@@ -46,7 +46,7 @@ public class AddPart {
             } else {
                 Part newPart = new InHouse(IDRecord.getNextPartID(), nameText.getText(),Integer.parseInt(priceText.getText()),Integer.parseInt(stockText.getText()),Integer.parseInt(minStockText.getText()),Integer.parseInt(maxStockText.getText()),Integer.parseInt(machineIDText.getText()));
                 Inventory.addPart(newPart);
-                Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("/view/PrimaryView.fxml"));
                 Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root,873,439);
                 stage.setTitle("");
@@ -71,7 +71,7 @@ public class AddPart {
             } else {
                 Part newPart = new OutSourced(IDRecord.getNextPartID(),nameText.getText(),Integer.parseInt(priceText.getText()),Integer.parseInt(stockText.getText()),Integer.parseInt(minStockText.getText()),Integer.parseInt(maxStockText.getText()),companyNameTextField.getText());
                 Inventory.addPart(newPart);
-                Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("/view/PrimaryView.fxml"));
                 Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root,873,439);
                 stage.setTitle("");
@@ -83,7 +83,7 @@ public class AddPart {
 
     public void cancelAddPart(ActionEvent actionEvent)  {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/view/PrimaryView.fxml"));
             Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
             Scene scene = new Scene(root,873,439);
             stage.setTitle("");

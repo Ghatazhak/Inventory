@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
+/** This class is the controller for ModifyProduct.fxml */
 public class ModifyProduct implements Initializable {
     public ObservableList<Part> associatedParts = FXCollections.observableArrayList();
     public Button addPartButton;
@@ -44,9 +44,9 @@ public class ModifyProduct implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        associatedParts = Main.tempAssociatedProduct.getAllAssociatedParts();
+        associatedParts = PrimaryView.tempAssociatedProduct.getAllAssociatedParts();
         allPartsView.setItems(Inventory.getAllParts());
-        associatedPartsView.setItems(Main.tempAssociatedProduct.getAllAssociatedParts());
+        associatedPartsView.setItems(PrimaryView.tempAssociatedProduct.getAllAssociatedParts());
 
         allPartsIDCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         allPartsNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -58,19 +58,19 @@ public class ModifyProduct implements Initializable {
         associatedPartsStockCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
         associatedPartsPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
 
-        modifyProductIDText.setText(String.valueOf(Main.tempAssociatedProduct.getId()));
-        modifyProductNameText.setText(Main.tempAssociatedProduct.getName());
-        modifyProductPriceText.setText(String.valueOf(Main.tempAssociatedProduct.getPrice()));
-        modifyProductMinText.setText(String.valueOf(Main.tempAssociatedProduct.getMin()));
-        modifyProductMaxText.setText(String.valueOf(Main.tempAssociatedProduct.getMax()));
-        modifyProductStockText.setText(String.valueOf(Main.tempAssociatedProduct.getStock()));
+        modifyProductIDText.setText(String.valueOf(PrimaryView.tempAssociatedProduct.getId()));
+        modifyProductNameText.setText(PrimaryView.tempAssociatedProduct.getName());
+        modifyProductPriceText.setText(String.valueOf(PrimaryView.tempAssociatedProduct.getPrice()));
+        modifyProductMinText.setText(String.valueOf(PrimaryView.tempAssociatedProduct.getMin()));
+        modifyProductMaxText.setText(String.valueOf(PrimaryView.tempAssociatedProduct.getMax()));
+        modifyProductStockText.setText(String.valueOf(PrimaryView.tempAssociatedProduct.getStock()));
 
     }
 
 
 
     public void cancelModifyProduct(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/PrimaryView.fxml"));
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root,873,439);
         stage.setTitle("");
@@ -97,11 +97,11 @@ public class ModifyProduct implements Initializable {
             return;
 
         } else {
-            int reuseID = Main.tempAssociatedProduct.getId();
-            Inventory.deleteProduct(Main.tempAssociatedProduct);
+            int reuseID =  PrimaryView.tempAssociatedProduct.getId();
+            Inventory.deleteProduct( PrimaryView.tempAssociatedProduct);
             Product newProduct = new Product(reuseID, modifyProductNameText.getText(), Double.parseDouble(modifyProductPriceText.getText()), Integer.parseInt(modifyProductStockText.getText()), Integer.parseInt(modifyProductMinText.getText()), Integer.parseInt(modifyProductMaxText.getText()), associatedParts);
             Inventory.addProduct(newProduct);
-            Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/view/PrimaryView.fxml"));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             Scene scene = new Scene(root, 873, 439);
             stage.setTitle("");

@@ -2,7 +2,7 @@ package model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
+/** This class holds the global(static) Part and Product list */
  public class Inventory {
     private static ObservableList<Part> allParts = FXCollections.observableArrayList();
     private static ObservableList<Product> allProducts = FXCollections.observableArrayList();

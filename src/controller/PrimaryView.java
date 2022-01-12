@@ -21,8 +21,8 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-
-public class Main implements Initializable {
+/** This class is the controller for the PrimaryView.fxml */
+public class PrimaryView implements Initializable {
 
     public static Product tempAssociatedProduct;
     public static Part tempAssociatedPart;

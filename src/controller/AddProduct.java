@@ -18,8 +18,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
-public class AddProducts implements Initializable {
+/** This class is the controller for AddProducts.fxml */
+public class AddProduct implements Initializable {
     public ObservableList<Part> associatedParts = FXCollections.observableArrayList();
     public TableView allPartsTableView;
     public TableView associatedPartsView;
@@ -77,7 +77,7 @@ public class AddProducts implements Initializable {
         } else {
             Product newProduct = new Product(IDRecord.getNextProductID(), productNameText.getText() ,Double.parseDouble(productPriceText.getText()),Integer.parseInt(productStockText.getText()),Integer.parseInt(productMinStockText.getText()),Integer.parseInt(productMaxStockText.getText()),associatedParts);
             Inventory.addProduct(newProduct);
-            Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/view/PrimaryView.fxml"));
             Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
             Scene scene = new Scene(root,873,439);
             stage.setTitle("");
@@ -87,7 +87,7 @@ public class AddProducts implements Initializable {
     }
 
     public void cancelProduct(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/PrimaryView.fxml"));
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root,873,439);
         stage.setTitle("");
