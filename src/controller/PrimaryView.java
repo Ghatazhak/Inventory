@@ -104,7 +104,9 @@ public class PrimaryView implements Initializable {
         stage.show();
     }
 
-    /** This method shows the add product view. Nothing follows */
+    /** This method shows the add product view. Nothing follows
+     * @param actionEvent
+     * */
     public void addProductView(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/AddProduct.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
