@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -19,6 +20,7 @@ import model.Product;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 
@@ -129,20 +131,30 @@ public class Main implements Initializable {
     }
 
     public void deletePart(ActionEvent actionEvent) {
+        Alert alert1 = new Alert(Alert.AlertType.CONFIRMATION,"This will delete the selected Product. Do you want to continue?");
+        Optional<ButtonType> result = alert1.showAndWait();
+        if(result.isPresent() && result.get() == ButtonType.OK){
         Part part = (Part) allPartsTableView.getSelectionModel().getSelectedItem();
         Inventory.deletePart(part);
     }
 
+    }
+
     public void deleteProduct(ActionEvent actionEvent) {
-        Product product = (Product) allProductsTableView.getSelectionModel().getSelectedItem();
-        if(product.getAllAssociatedParts().isEmpty()){
-            Inventory.deleteProduct(product);
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Associated Parts");
-            alert.setContentText("Unable to delete Products with Associated parts. Please remove all parts before deleting.");
-            alert.show();
-            return;
+        Alert alert1 = new Alert(Alert.AlertType.CONFIRMATION,"This will delete the selected Product. Do you want to continue?");
+        Optional<ButtonType> result = alert1.showAndWait();
+
+        if(result.isPresent() && result.get() == ButtonType.OK){
+            Product product = (Product) allProductsTableView.getSelectionModel().getSelectedItem();
+            if(product.getAllAssociatedParts().isEmpty()){
+                Inventory.deleteProduct(product);
+            } else {
+                Alert alert2 = new Alert(Alert.AlertType.ERROR);
+                alert2.setTitle("Associated Parts");
+                alert2.setContentText("Unable to delete Products with Associated parts. Please remove all parts before deleting.");
+                alert2.show();
+                return;
+            }
         }
     }
 }
