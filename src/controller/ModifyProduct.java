@@ -94,8 +94,9 @@ public class ModifyProduct implements Initializable {
             return;
 
         } else {
+            int reuseID = Main.tempAssociatedProduct.getId();
             Inventory.deleteProduct(Main.tempAssociatedProduct);
-            Product newProduct = new Product(IDRecord.getNextProductID(), modifyProductNameText.getText(), Double.parseDouble(modifyProductPriceText.getText()), Integer.parseInt(modifyProductStockText.getText()), Integer.parseInt(modifyProductMinText.getText()), Integer.parseInt(modifyProductMaxText.getText()), associatedParts);
+            Product newProduct = new Product(reuseID, modifyProductNameText.getText(), Double.parseDouble(modifyProductPriceText.getText()), Integer.parseInt(modifyProductStockText.getText()), Integer.parseInt(modifyProductMinText.getText()), Integer.parseInt(modifyProductMaxText.getText()), associatedParts);
             Inventory.addProduct(newProduct);
             Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();

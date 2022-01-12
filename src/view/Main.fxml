@@ -26,7 +26,7 @@
                   <TableColumn fx:id="allPartsPriceCol" prefWidth="112.66665649414062" text="Price/Cost per Unit" />
               </columns>
             </TableView>
-            <TextField layoutX="222.0" layoutY="12.0" prefHeight="25.0" prefWidth="165.0" promptText=" Search by Part ID or Name" />
+            <TextField fx:id="partsSearchText" layoutX="172.0" layoutY="12.0" onAction="#onPartsSearch" prefHeight="25.0" prefWidth="165.0" promptText=" Search by Part ID or Name" />
             <Label layoutX="12.0" layoutY="14.0" text="PARTS">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -35,6 +35,7 @@
             <Button layoutX="142.0" layoutY="250.0" mnemonicParsing="false" onAction="#addPartView" prefHeight="40.0" prefWidth="75.0" text="Add" />
             <Button layoutX="227.0" layoutY="250.0" mnemonicParsing="false" onAction="#modifyPartView" prefHeight="40.0" prefWidth="75.0" text="Modify" />
             <Button layoutX="312.0" layoutY="250.0" mnemonicParsing="false" onAction="#deletePart" prefHeight="40.0" prefWidth="75.0" text="Delete" />
+            <Button layoutX="340.0" layoutY="12.0" mnemonicParsing="false" onAction="#onPartsSearch" text="Search" />
          </children>
       </Pane>
       <Button layoutX="770.0" layoutY="390.0" mnemonicParsing="false" onAction="#exitApplication" prefHeight="40.0" prefWidth="70.0" text="EXIT" />
@@ -48,7 +49,7 @@
                   <TableColumn fx:id="allProductsPriceCol" prefWidth="112.66665649414062" text="Price/Cost per Unit" />
                </columns>
             </TableView>
-            <TextField layoutX="222.0" layoutY="12.0" prefHeight="25.0" prefWidth="165.0" promptText=" Search by Part ID or Name" />
+            <TextField fx:id="productSearchText" layoutX="172.0" layoutY="12.0" onAction="#onProductSearch" prefHeight="25.0" prefWidth="165.0" promptText=" Search by Product ID or Name" />
             <Label layoutX="12.0" layoutY="14.0" text="PRODUCTS">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -57,7 +58,10 @@
             <Button layoutX="142.0" layoutY="250.0" mnemonicParsing="false" onAction="#addProductView" prefHeight="40.0" prefWidth="75.0" text="Add" />
             <Button layoutX="227.0" layoutY="250.0" mnemonicParsing="false" onAction="#modifyProductView" prefHeight="40.0" prefWidth="75.0" text="Modify" />
             <Button layoutX="312.0" layoutY="250.0" mnemonicParsing="false" onAction="#deleteProduct" prefHeight="40.0" prefWidth="75.0" text="Delete" />
+            <Button layoutX="339.0" layoutY="12.0" mnemonicParsing="false" onAction="#onProductSearch" text="Search" />
          </children>
       </Pane>
+      <Label fx:id="partsSearchResults" layoutX="315.0" layoutY="53.0" />
+      <Label fx:id="productSearchResults" layoutX="745.0" layoutY="53.0" />
    </children>
 </AnchorPane>

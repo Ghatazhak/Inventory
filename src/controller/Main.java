@@ -1,6 +1,7 @@
 package controller;
 
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,10 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.Inventory;
@@ -58,6 +56,10 @@ public class Main implements Initializable {
 
     @FXML
     public TableView allPartsTableView;
+    public TextField partsSearchText;
+    public TextField productSearchText;
+    public Label partsSearchResults;
+    public Label productSearchResults;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -136,7 +138,7 @@ public class Main implements Initializable {
         if(result.isPresent() && result.get() == ButtonType.OK){
         Part part = (Part) allPartsTableView.getSelectionModel().getSelectedItem();
         Inventory.deletePart(part);
-    }
+        }
 
     }
 
@@ -156,6 +158,49 @@ public class Main implements Initializable {
                 return;
             }
         }
+    }
+
+    public void onPartsSearch(ActionEvent actionEvent) {
+        String q = partsSearchText.getText();
+        ObservableList<Part> partsList = Inventory.lookupPart(q);
+        if(partsList.size() == 0){
+           try {
+               int id = Integer.parseInt(q);
+               Part part = Inventory.lookupPart(id);
+               if (part != null) {
+                   partsList.add(part);
+               }
+           }
+           catch (NumberFormatException e){
+               //ignore
+           }
+        }
+
+        allPartsTableView.setItems(partsList);
+        partsSearchResults.setText(partsList.size() + " part(s) returned.");
+        partsSearchText.setText("");
+    }
+
+
+    public void onProductSearch(ActionEvent actionEvent) {
+        String q = productSearchText.getText();
+        ObservableList<Product> productsList = Inventory.lookupProduct(q);
+        if(productsList.size() == 0){
+            try {
+                int id = Integer.parseInt(q);
+                Product product = Inventory.lookupProduct(id);
+                if (product != null) {
+                    productsList.add(product);
+                }
+            }
+            catch (NumberFormatException e){
+                //ignore
+            }
+        }
+
+        allProductsTableView.setItems(productsList);
+        productSearchResults.setText(productsList.size() + " product(s) returned.");
+        productSearchText.setText("");
     }
 }
 

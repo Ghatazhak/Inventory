@@ -16,21 +16,47 @@ import javafx.collections.ObservableList;
     }
 
     public static Part lookupPart(int partId){
-        return allParts.get(partId);
+        ObservableList<Part> allparts = Inventory.getAllParts();
+        for (int i = 0; i < allparts.size(); i++) {
+            Part part = allparts.get(i);
+            if(part.getId() == partId){
+                return part;
+            }
+        }
+        return null;
     }
 
     public static Product lookupProduct(int productId){
-        return allProducts.get(productId);
+        ObservableList<Product> allProducts = Inventory.getAllProducts();
+        for (int i = 0; i < allProducts.size(); i++) {
+            Product product = allProducts.get(i);
+            if(product.getId() == productId){
+                return product;
+            }
+        }
+        return null;
     }
 
     public static ObservableList<Part> lookupPart(String name){
-        //TO DO
-        return null;
+        ObservableList<Part> namedParts = FXCollections.observableArrayList();
+        ObservableList<Part> allParts = Inventory.getAllParts();
+        for(Part part: allParts){
+            if(part.getName().contains(name)){
+                namedParts.add(part);
+            }
+        }
+        return namedParts;
     }
 
     public static ObservableList<Product> lookupProduct(String productName){
-        //TO DO
-        return null;
+        ObservableList<Product> namedProducts = FXCollections.observableArrayList();
+        ObservableList<Product> allProducts = Inventory.getAllProducts();
+        for(Product product: allProducts){
+            if(product.getName().contains(productName)){
+                namedProducts.add(product);
+            }
+        }
+        return namedProducts;
     }
 
     public static void updatePart(int index, Part selectedPart){
