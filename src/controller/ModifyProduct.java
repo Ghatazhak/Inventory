@@ -75,55 +75,37 @@ public class ModifyProduct implements Initializable {
         stage.show();
     }
 
+
+
+
     public void saveModifyProduct(ActionEvent actionEvent) throws IOException {
-        if(!InputValidator.intValidator(modifyProductStockText.getText()) || !InputValidator.intValidator(modifyProductMinText.getText()) || !InputValidator.intValidator(modifyProductMaxText.getText()) || !InputValidator.doubleValidator(modifyProductPriceText.getText())){
+        if (!InputValidator.intValidator(modifyProductStockText.getText()) || !InputValidator.intValidator(modifyProductMinText.getText()) || !InputValidator.intValidator(modifyProductMaxText.getText()) || !InputValidator.doubleValidator(modifyProductPriceText.getText())) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Something is not a number");
             alert.setContentText("One or more if the following are not numbers or blank: Inv, Min, Max, or Price");
             alert.show();
+            return;
 
-        } else if(Integer.parseInt(modifyProductStockText.getText()) > Integer.parseInt(modifyProductMaxText.getText()) || Integer.parseInt(modifyProductStockText.getText()) < Integer.parseInt(modifyProductMinText.getText())) {
+        } else if (Integer.parseInt(modifyProductStockText.getText()) > Integer.parseInt(modifyProductMaxText.getText()) || Integer.parseInt(modifyProductStockText.getText()) < Integer.parseInt(modifyProductMinText.getText())) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Inventory Levels out of Range Error");
             alert.setContentText("Inv cannot be higher than max or lower than min!");
             alert.show();
+            return;
 
         } else {
-            //Product newProduct = new Product(IDRecord.getNextProductID(), modifyProductNameText.getText() ,Double.parseDouble(modifyProductPriceText.getText()),Integer.parseInt(modifyProductStockText.getText()),Integer.parseInt(modifyProductMinText.getText()),Integer.parseInt(modifyProductMaxText.getText()),associatedParts);
-
-            //Inventory.addProduct(newProduct);
+            Inventory.deleteProduct(Main.tempAssociatedProduct);
+            Product newProduct = new Product(IDRecord.getNextProductID(), modifyProductNameText.getText(), Double.parseDouble(modifyProductPriceText.getText()), Integer.parseInt(modifyProductStockText.getText()), Integer.parseInt(modifyProductMinText.getText()), Integer.parseInt(modifyProductMaxText.getText()), associatedParts);
+            Inventory.addProduct(newProduct);
             Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
-            Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root,873,439);
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root, 873, 439);
             stage.setTitle("");
             stage.setScene(scene);
             stage.show();
+            }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
-        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root,873,439);
-        stage.setTitle("");
-        stage.setScene(scene);
-        stage.show();
-    }
 
     public void addPartToProduct(ActionEvent actionEvent) {
         Part part = (Part) allPartsView.getSelectionModel().getSelectedItem();

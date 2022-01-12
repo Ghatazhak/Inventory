@@ -60,13 +60,14 @@ public class AddPart {
                 alert.setTitle("Something is not a number or empty");
                 alert.setContentText("One or more if the following are not numbers or blank: Inv, Min, Max, or Price");
                 alert.show();
+                return;
 
             } else if(Integer.parseInt(stockText.getText()) > Integer.parseInt(maxStockText.getText()) || Integer.parseInt(stockText.getText()) < Integer.parseInt(minStockText.getText())) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Inventory Levels out of Range Error");
                 alert.setContentText("Inv cannot be higher than max or lower than min!");
                 alert.show();
-
+                return;
             } else {
                 Part newPart = new OutSourced(IDRecord.getNextPartID(),nameText.getText(),Integer.parseInt(priceText.getText()),Integer.parseInt(stockText.getText()),Integer.parseInt(minStockText.getText()),Integer.parseInt(maxStockText.getText()),companyNameTextField.getText());
                 Inventory.addPart(newPart);

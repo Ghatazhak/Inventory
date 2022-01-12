@@ -67,16 +67,15 @@ public class AddProducts implements Initializable {
             alert.setTitle("Something is not a number");
             alert.setContentText("One or more if the following are not numbers or blank: Inv, Min, Max, or Price");
             alert.show();
-
+            return;
         } else if(Integer.parseInt(productStockText.getText()) > Integer.parseInt(productMaxStockText.getText()) || Integer.parseInt(productStockText.getText()) < Integer.parseInt(productMinStockText.getText())) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Inventory Levels out of Range Error");
             alert.setContentText("Inv cannot be higher than max or lower than min!");
             alert.show();
-
+            return;
         } else {
             Product newProduct = new Product(IDRecord.getNextProductID(), productNameText.getText() ,Double.parseDouble(productPriceText.getText()),Integer.parseInt(productStockText.getText()),Integer.parseInt(productMinStockText.getText()),Integer.parseInt(productMaxStockText.getText()),associatedParts);
-
             Inventory.addProduct(newProduct);
             Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
             Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
@@ -85,7 +84,6 @@ public class AddProducts implements Initializable {
             stage.setScene(scene);
             stage.show();
         }
-
     }
 
     public void cancelProduct(ActionEvent actionEvent) throws IOException {

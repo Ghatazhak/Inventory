@@ -12,13 +12,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import model.InHouse;
+import model.Inventory;
 import model.OutSourced;
+import model.Part;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ModifyPart implements Initializable {
+    public Part modifiedPart;
     public RadioButton inHouse;
     public RadioButton outSourced;
     public Label inHouseMachineIDLabel;
@@ -62,6 +65,28 @@ public class ModifyPart implements Initializable {
     }
 
     public void saveModifyPart(ActionEvent actionEvent) throws IOException {
+        int id = Main.tempAssociatedPart.getId();
+
+        Main.tempAssociatedPart.setName(modifyPartNameText.getText());
+        Main.tempAssociatedPart.setStock(Integer.parseInt(modifyPartStockText.getText()));
+        Main.tempAssociatedPart.setMin(Integer.parseInt(modifyPartMinText.getText()));
+        Main.tempAssociatedPart.setMax(Integer.parseInt(modifyPartMaxText.getText()));
+        Main.tempAssociatedPart.setPrice(Double.parseDouble(modifyPartPriceText.getText()));
+        if(Main.tempAssociatedPart instanceof InHouse){
+            ((InHouse) Main.tempAssociatedPart).setMachineId(Integer.parseInt(inHouseMachineIDTextField.getText()));
+        } else {
+            ((OutSourced) Main.tempAssociatedPart).setCompanyName((outSourcedCompanyNameTextField.getText()));
+        }
+
+        int inbox = -1;
+        for (Part tempAssociatedPart: Inventory.getAllParts()){
+            inbox++;
+            if(tempAssociatedPart.getId() == id){
+                Inventory.getAllParts().set(inbox,tempAssociatedPart);
+                break;
+            }
+        }
+
         Parent root = FXMLLoader.load(getClass().getResource("/view/Main.fxml"));
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         Scene scene = new Scene(root,873,439);

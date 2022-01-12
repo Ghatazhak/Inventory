@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -134,7 +135,15 @@ public class Main implements Initializable {
 
     public void deleteProduct(ActionEvent actionEvent) {
         Product product = (Product) allProductsTableView.getSelectionModel().getSelectedItem();
-        Inventory.deleteProduct(product);
+        if(product.getAllAssociatedParts().isEmpty()){
+            Inventory.deleteProduct(product);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Associated Parts");
+            alert.setContentText("Unable to delete Products with Associated parts. Please remove all parts before deleting.");
+            alert.show();
+            return;
+        }
     }
 }
 
