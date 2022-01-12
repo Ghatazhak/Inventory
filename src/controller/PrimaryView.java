@@ -78,7 +78,7 @@ public class PrimaryView implements Initializable {
 
 
     }
-
+    /** This method takes to you to the add part view. Nothing follows. */
     public void addPartView(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/AddPart.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -88,7 +88,7 @@ public class PrimaryView implements Initializable {
         stage.show();
     }
 
-
+    /** This method takes you to the modify part view. It also loads the selected part to modify */
     public void modifyPartView(ActionEvent actionEvent) throws IOException {
         tempAssociatedPart = (Part) allPartsTableView.getSelectionModel().getSelectedItem();
 
@@ -104,6 +104,7 @@ public class PrimaryView implements Initializable {
         stage.show();
     }
 
+    /** This method shows the add product view. Nothing follows */
     public void addProductView(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/AddProduct.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -112,7 +113,7 @@ public class PrimaryView implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
+    /** This method loads the modify product view. It also loads the selected product for editing  */
     public void modifyProductView(ActionEvent actionEvent) throws IOException {
         tempAssociatedProduct = (Product) allProductsTableView.getSelectionModel().getSelectedItem();
 
@@ -127,7 +128,7 @@ public class PrimaryView implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
+    /** This method exits the application. Exits the application */
     public void exitApplication(ActionEvent actionEvent) {
         Platform.exit();
     }

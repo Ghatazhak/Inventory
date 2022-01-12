@@ -80,7 +80,9 @@ public class ModifyProduct implements Initializable {
 
 
 
-
+    /** This saves modified Products. This method uses the InputValidator to check user input and saves all the changes
+      to the modified.  LOGICAL ERROR: I was getting a logical error when I modified a product, it would waste the product ID of the original. This was corrected
+     below by using int variable called reusedID to preserve the original ID for the new modified verison of the product */
     public void saveModifyProduct(ActionEvent actionEvent) throws IOException {
         if (!InputValidator.intValidator(modifyProductStockText.getText()) || !InputValidator.intValidator(modifyProductMinText.getText()) || !InputValidator.intValidator(modifyProductMaxText.getText()) || !InputValidator.doubleValidator(modifyProductPriceText.getText())) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -110,7 +112,7 @@ public class ModifyProduct implements Initializable {
             }
         }
 
-
+    /** This method adds parts to a product. It has an alert box. */
     public void addPartToProduct(ActionEvent actionEvent) {
         Part part = (Part) allPartsView.getSelectionModel().getSelectedItem();
         if(part == null){
@@ -122,7 +124,7 @@ public class ModifyProduct implements Initializable {
         }
         associatedParts.add(part);
     }
-
+    /** This method removes parts from a product. It has an alert box. */
     public void removePartFromProduct(ActionEvent actionEvent) {
         Part part = (Part) allPartsView.getSelectionModel().getSelectedItem();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "This will remove the part from the product. Is that ok?");
@@ -138,7 +140,7 @@ public class ModifyProduct implements Initializable {
             associatedParts.remove(part);
         }
     }
-
+    /** This method allows you to search top part list. It allows partial string matches and integer id searchs and shows results */
     public void onPartSearch(ActionEvent actionEvent) {
         String q = partSearchText.getText();
         ObservableList<Part> partsList = Inventory.lookupPart(q);

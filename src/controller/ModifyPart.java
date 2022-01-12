@@ -63,7 +63,7 @@ public class ModifyPart implements Initializable {
             outSourcedCompanyNameTextField.setText(String.valueOf(((OutSourced) PrimaryView.tempAssociatedPart).getCompanyName()));
         }
     }
-
+    /** This method saves the modified part. It will return you to the primary view. */
     public void saveModifyPart(ActionEvent actionEvent) throws IOException {
         int id = PrimaryView.tempAssociatedPart.getId();
 
@@ -94,7 +94,7 @@ public class ModifyPart implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
+    /** This method cancels the modify part screen. It will return you to the primary view*/
     public void cancelModifyPart(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/PrimaryView.fxml"));
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
@@ -103,14 +103,14 @@ public class ModifyPart implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
+    /** This method changes the visibility of the radio buttons. Inhouse */
     public void inHouse(ActionEvent actionEvent) {
         inHouseMachineIDLabel.setVisible(true);
         inHouseMachineIDTextField.setVisible(true);
         outSourcedCompanyNameLabel.setVisible(false);
         outSourcedCompanyNameTextField.setVisible(false);
     }
-
+    /** This method changes the visibility of the radio buttons. Outsourced */
     public void outSourced(ActionEvent actionEvent) {
         outSourcedCompanyNameLabel.setVisible(true);
         outSourcedCompanyNameTextField.setVisible(true);

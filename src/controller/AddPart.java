@@ -27,7 +27,7 @@ public class AddPart {
     public TextField maxStockText;
     public TextField minStockText;
 
-
+    /** This method saves a new part. It also validates the input and is aware of the the two types of parts(outsourced and in house) */
     public void saveAddPart(ActionEvent actionEvent) throws IOException {
 
         if(inHouse.isSelected()){
@@ -80,7 +80,7 @@ public class AddPart {
             }
         }
     }
-
+    /** This method cancels the adding of a new part. It also takes you back to the primary view */
     public void cancelAddPart(ActionEvent actionEvent)  {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/view/PrimaryView.fxml"));
@@ -93,14 +93,14 @@ public class AddPart {
             System.out.println("No such FXML File");
         }
     }
-
+    /** This method changes the visibility of the radio buttons. This is for the inHouse case */
     public void inHouse(ActionEvent actionEvent) {
         machineIDLabel.setVisible(true);
         machineIDText.setVisible(true);
         companyNameLabel.setVisible(false);
         companyNameTextField.setVisible(false);
     }
-
+    /** This method changes the visibility of the radio buttons. This is for the outSourced case */
     public void outSourced(ActionEvent actionEvent) {
         companyNameLabel.setVisible(true);
         companyNameTextField.setVisible(true);
