@@ -17,6 +17,7 @@ public class Main extends Application {
         stage.setScene(new Scene(root,873, 439));
         stage.show();
     }
+//    The java docs are included in a folder called javadocs.
     /** This is the main method. This is the first method that gets called when you run your java program. FUTURE ENHANCEMENTS: The Add parts/products views are disorganized and need to be rethought out.  */
     public static void main(String[] args){
         addsTestData();

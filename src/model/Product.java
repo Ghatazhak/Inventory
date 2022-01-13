@@ -35,7 +35,7 @@ public class Product {
         return id;
     }
 /** method sets the id of the product.
- * @param id */
+ * @param id id as an integer. */
     public void setId(int id) {
         this.id = id;
     }
@@ -95,10 +95,10 @@ public class Product {
         associatedParts.add(part);
     }
 /** method to delete associated part.
- * @param selectedAssociatedPart  part to delete.*/
+ * @param selectedAssociatedPart part to delete.
+ * @return returns boolean whether the deletion was successful. */
     public boolean deleteAssociatedPart(Part selectedAssociatedPart) {
-
-        return true;
+       return associatedParts.remove(selectedAssociatedPart);
     }
 /** method to get all parts associated with a product.
  * @return returns a list of parts associated with a product.*/
