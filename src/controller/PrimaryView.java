@@ -52,10 +52,10 @@ public class PrimaryView implements Initializable {
     public TableColumn<Part, Integer> allProductsPriceCol;
 
     @FXML
-    public TableView allProductsTableView;
+    public TableView<Product> allProductsTableView;
 
     @FXML
-    public TableView allPartsTableView;
+    public TableView<Part> allPartsTableView;
     public TextField partsSearchText;
     public TextField productSearchText;
     public Label partsSearchResults;
@@ -78,7 +78,8 @@ public class PrimaryView implements Initializable {
 
 
     }
-    /** This method takes to you to the add part view. Nothing follows. */
+    /** This method takes to you to the add part view. Nothing follows.
+     * @param actionEvent  */
     public void addPartView(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/AddPart.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -88,7 +89,8 @@ public class PrimaryView implements Initializable {
         stage.show();
     }
 
-    /** This method takes you to the modify part view. It also loads the selected part to modify */
+    /** This method takes you to the modify part view. It also loads the selected part to modify.
+     * @param actionEvent  */
     public void modifyPartView(ActionEvent actionEvent) throws IOException {
         tempAssociatedPart = (Part) allPartsTableView.getSelectionModel().getSelectedItem();
 
@@ -115,7 +117,8 @@ public class PrimaryView implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    /** This method loads the modify product view. It also loads the selected product for editing  */
+    /** This method loads the modify product view. It also loads the selected product for editing
+     * @param actionEvent  */
     public void modifyProductView(ActionEvent actionEvent) throws IOException {
         tempAssociatedProduct = (Product) allProductsTableView.getSelectionModel().getSelectedItem();
 
@@ -130,11 +133,13 @@ public class PrimaryView implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    /** This method exits the application. Exits the application */
+    /** This method exits the application. Exits the application.
+     * @param actionEvent  */
     public void exitApplication(ActionEvent actionEvent) {
         Platform.exit();
     }
-
+/** This method deletes a part. It deletes it from the all parts tableview.
+ * @param actionEvent */
     public void deletePart(ActionEvent actionEvent) {
         Part part = (Part) allPartsTableView.getSelectionModel().getSelectedItem();
         if(part == null || Inventory.getAllParts().isEmpty()){
@@ -150,7 +155,8 @@ public class PrimaryView implements Initializable {
         Inventory.deletePart(part);
         }
     }
-
+/**This method deletes a product. It deletes it from the all product tableview.
+ * @param actionEvent */
     public void deleteProduct(ActionEvent actionEvent) {
         Product product = (Product) allProductsTableView.getSelectionModel().getSelectedItem();
         if(product == null){
@@ -176,7 +182,8 @@ public class PrimaryView implements Initializable {
             }
         }
     }
-
+/** This method searches for parts. It search for parts by partial string match and part ID match.
+ * @param actionEvent */
     public void onPartsSearch(ActionEvent actionEvent) {
         String q = partsSearchText.getText();
         ObservableList<Part> partsList = Inventory.lookupPart(q);
@@ -198,7 +205,8 @@ public class PrimaryView implements Initializable {
         partsSearchText.setText("");
     }
 
-
+    /** This method searches for products. It searches for products by partial string match and product ID match.
+     * @param actionEvent */
     public void onProductSearch(ActionEvent actionEvent) {
         String q = productSearchText.getText();
         ObservableList<Product> productsList = Inventory.lookupProduct(q);

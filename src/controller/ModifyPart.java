@@ -63,7 +63,8 @@ public class ModifyPart implements Initializable {
             outSourcedCompanyNameTextField.setText(String.valueOf(((OutSourced) PrimaryView.tempAssociatedPart).getCompanyName()));
         }
     }
-    /** This method saves the modified part. It will return you to the primary view. */
+    /** This method saves the modified part. It will return you to the primary view.
+     * @param actionEvent  */
     public void saveModifyPart(ActionEvent actionEvent) throws IOException {
         int id = PrimaryView.tempAssociatedPart.getId();
 
@@ -72,6 +73,7 @@ public class ModifyPart implements Initializable {
         PrimaryView.tempAssociatedPart.setMin(Integer.parseInt(modifyPartMinText.getText()));
         PrimaryView.tempAssociatedPart.setMax(Integer.parseInt(modifyPartMaxText.getText()));
         PrimaryView.tempAssociatedPart.setPrice(Double.parseDouble(modifyPartPriceText.getText()));
+
         if(PrimaryView.tempAssociatedPart instanceof InHouse){
             ((InHouse) PrimaryView.tempAssociatedPart).setMachineId(Integer.parseInt(inHouseMachineIDTextField.getText()));
         } else {
@@ -94,7 +96,8 @@ public class ModifyPart implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    /** This method cancels the modify part screen. It will return you to the primary view*/
+    /** This method cancels the modify part screen. It will return you to the primary view
+     * @param actionEvent */
     public void cancelModifyPart(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/PrimaryView.fxml"));
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
@@ -103,14 +106,16 @@ public class ModifyPart implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    /** This method changes the visibility of the radio buttons. Inhouse */
+    /** This method changes the visibility of the radio buttons. Inhouse
+     * @param actionEvent  */
     public void inHouse(ActionEvent actionEvent) {
         inHouseMachineIDLabel.setVisible(true);
         inHouseMachineIDTextField.setVisible(true);
         outSourcedCompanyNameLabel.setVisible(false);
         outSourcedCompanyNameTextField.setVisible(false);
     }
-    /** This method changes the visibility of the radio buttons. Outsourced */
+    /** This method changes the visibility of the radio buttons. Outsourced
+     * @param actionEvent  */
     public void outSourced(ActionEvent actionEvent) {
         outSourcedCompanyNameLabel.setVisible(true);
         outSourcedCompanyNameTextField.setVisible(true);

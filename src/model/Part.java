@@ -1,5 +1,5 @@
 package model;
-/** This class is the base abstract classed used for parts. This may be extended by OutSourced or InHouse classes */
+
 public abstract class Part  {
     private int id;
     private String name;

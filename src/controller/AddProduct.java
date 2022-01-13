@@ -59,7 +59,8 @@ public class AddProduct implements Initializable {
         associatedPartStockCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
         associatedPartPriceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
     }
-    /** This method saves Products. It also uses the Inputvalidator and has some alert boxes. */
+    /** This method saves Products. It also uses the Inputvalidator and has some alert boxes.
+     * @param actionEvent  */
     public void saveProduct(ActionEvent actionEvent) throws IOException {
 
         if(!InputValidator.intValidator(productStockText.getText()) || !InputValidator.intValidator(productMinStockText.getText()) || !InputValidator.intValidator(productMaxStockText.getText()) || !InputValidator.doubleValidator(productPriceText.getText())){
@@ -85,7 +86,8 @@ public class AddProduct implements Initializable {
             stage.show();
         }
     }
-    /** This method cancel the add product. It returns to the primary view */
+    /** This method cancel the add product. It returns to the primary view
+     * @param actionEvent  */
     public void cancelProduct(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/PrimaryView.fxml"));
         Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
@@ -94,7 +96,8 @@ public class AddProduct implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    /** This method adds parts to the current product. Also has an alert box. */
+    /** This method adds parts to the current product. Also has an alert box.
+     * @param actionEvent  */
     public void addPart(ActionEvent actionEvent) {
         Part part = (Part) allPartsTableView.getSelectionModel().getSelectedItem();
         if(part == null){
@@ -106,7 +109,8 @@ public class AddProduct implements Initializable {
         }
         associatedParts.add(part);
     }
-    /** This method removes parts from the current product. Also has an alert box */
+    /** This method removes parts from the current product. Also has an alert box
+     * @param actionEvent  */
     public void removePart(ActionEvent actionEvent) {
         Part part = (Part) allPartsTableView.getSelectionModel().getSelectedItem();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"This will remove the part from the product. Is that ok?");
@@ -123,7 +127,8 @@ public class AddProduct implements Initializable {
         }
     }
 
-    /** This method allows you to search the top parts list. It allows partial string matches and integer id matches and shows results. */
+    /** This method allows you to search the top parts list. It allows partial string matches and integer id matches and shows results.
+     * @param actionEvent  */
     public void onPartSearch(ActionEvent actionEvent) {
         String q = partSearchText.getText();
         ObservableList<Part> partsList = Inventory.lookupPart(q);
